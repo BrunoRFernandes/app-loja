@@ -2,6 +2,7 @@ package br.com.microservice.loja.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +24,9 @@ public class CompraController {
 		return compraService.realizaCompra(compra);
 	}
 	
-	@GetMapping
-	public void lista() {
-		System.out.println("teste");
+	@GetMapping("/{id}")
+	public Compra getById(@PathVariable("id") Long id) {
+		return compraService.getById(id);
 	}
 	
 	
